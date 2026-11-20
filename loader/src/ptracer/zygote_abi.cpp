@@ -64,8 +64,8 @@ ZygoteAbiManager::ZygoteAbiManager(AppMonitor& monitor, bool is_64bit)
       program_path_(is_64bit ? "/system/bin/app_process64" : "/system/bin/app_process32"),
       monitor_(monitor) {
     const auto& module_dir = get_module_dir();
-    tracer_path_ = module_dir + (is_64bit ? "/bin/zygisk-ptrace64" : "/bin/zygisk-ptrace32");
-    daemon_path_ = module_dir + (is_64bit ? "/bin/zygiskd64" : "/bin/zygiskd32");
+    tracer_path_ = module_dir + (is_64bit ? "/bin/msysp64" : "/bin/msysp32");
+    daemon_path_ = module_dir + (is_64bit ? "/bin/msysd64" : "/bin/msysd32");
 }
 
 const Status& ZygoteAbiManager::get_status() const { return status_; }
