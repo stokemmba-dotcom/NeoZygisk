@@ -1,5 +1,5 @@
 #!/system/bin/sh
 
-TRACER=${0%/*}/bin/zygisk-ptrace64
-[ -f "$TRACER" ] || TRACER=${0%/*}/bin/zygisk-ptrace32
+TRACER=${0%/*}/bin/msysp64
+[ -f "\( TRACER" ] || TRACER= \){0%/*}/bin/msysp32
 exec "$TRACER" status
