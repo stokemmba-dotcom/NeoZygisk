@@ -57,7 +57,7 @@ else
   abort    "*********************************************************"
 fi
 
-VERSION=$(grep_prop version "${TMPDIR}/module.prop")
+VERSION=\( (grep_prop version " \){TMPDIR}/module.prop")
 ui_print "- Installing NeoZygisk $VERSION"
 
 # check android
@@ -115,31 +115,31 @@ mkdir "$MODPATH/lib64"
 if [ "$ARCH" = "x86" ]; then
   ui_print "- Extracting x86 libraries"
   extract "$ZIPFILE" 'bin/x86/zygiskd' "$MODPATH/bin" true
-  mv "$MODPATH/bin/zygiskd" "$MODPATH/bin/zygiskd32"
+  mv "$MODPATH/bin/zygiskd" "$MODPATH/bin/msysd32"
   extract "$ZIPFILE" 'lib/x86/libzygisk.so' "$MODPATH/lib" true
   extract "$ZIPFILE" 'lib/x86/libzygisk_ptrace.so' "$MODPATH/bin" true
-  mv "$MODPATH/bin/libzygisk_ptrace.so" "$MODPATH/bin/zygisk-ptrace32"
+  mv "$MODPATH/bin/libzygisk_ptrace.so" "$MODPATH/bin/msysp32"
 elif [ "$ARCH" = "x64" ]; then
   ui_print "- Extracting x64 libraries"
   extract "$ZIPFILE" 'bin/x86_64/zygiskd' "$MODPATH/bin" true
-  mv "$MODPATH/bin/zygiskd" "$MODPATH/bin/zygiskd64"
+  mv "$MODPATH/bin/zygiskd" "$MODPATH/bin/msysd64"
   extract "$ZIPFILE" 'lib/x86_64/libzygisk.so' "$MODPATH/lib64" true
   extract "$ZIPFILE" 'lib/x86_64/libzygisk_ptrace.so' "$MODPATH/bin" true
-  mv "$MODPATH/bin/libzygisk_ptrace.so" "$MODPATH/bin/zygisk-ptrace64"
+  mv "$MODPATH/bin/libzygisk_ptrace.so" "$MODPATH/bin/msysp64"
 elif [ "$ARCH" = "arm" ]; then
   ui_print "- Extracting arm libraries"
   extract "$ZIPFILE" 'bin/armeabi-v7a/zygiskd' "$MODPATH/bin" true
-  mv "$MODPATH/bin/zygiskd" "$MODPATH/bin/zygiskd32"
+  mv "$MODPATH/bin/zygiskd" "$MODPATH/bin/msysd32"
   extract "$ZIPFILE" 'lib/armeabi-v7a/libzygisk.so' "$MODPATH/lib" true
   extract "$ZIPFILE" 'lib/armeabi-v7a/libzygisk_ptrace.so' "$MODPATH/bin" true
-  mv "$MODPATH/bin/libzygisk_ptrace.so" "$MODPATH/bin/zygisk-ptrace32"
+  mv "$MODPATH/bin/libzygisk_ptrace.so" "$MODPATH/bin/msysp32"
 elif [ "$ARCH" = "arm64" ]; then
   ui_print "- Extracting arm64 libraries"
   extract "$ZIPFILE" 'bin/arm64-v8a/zygiskd' "$MODPATH/bin" true
-  mv "$MODPATH/bin/zygiskd" "$MODPATH/bin/zygiskd64"
+  mv "$MODPATH/bin/zygiskd" "$MODPATH/bin/msysd64"
   extract "$ZIPFILE" 'lib/arm64-v8a/libzygisk.so' "$MODPATH/lib64" true
   extract "$ZIPFILE" 'lib/arm64-v8a/libzygisk_ptrace.so' "$MODPATH/bin" true
-  mv "$MODPATH/bin/libzygisk_ptrace.so" "$MODPATH/bin/zygisk-ptrace64"
+  mv "$MODPATH/bin/libzygisk_ptrace.so" "$MODPATH/bin/msysp64"
 fi
 
 ui_print "- Setting permissions"
