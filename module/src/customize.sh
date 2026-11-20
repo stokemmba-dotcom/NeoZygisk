@@ -57,7 +57,7 @@ else
   abort    "*********************************************************"
 fi
 
-VERSION=\( (grep_prop version " \){TMPDIR}/module.prop")
+VERSION=$(grep_prop version "$TMPDIR/module.prop")
 ui_print "- Installing NeoZygisk $VERSION"
 
 # check android
